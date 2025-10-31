@@ -11,7 +11,7 @@ If you are interesting in contributing to this. Feel free to ping on the SIG Mat
 
 Once you are a member, you can clone, work and make pull requests to the repo as follows: (This requires [git](https://git-scm.com/install/) to be installed and working locally).
 
-Open the terminal at the repository where you want to download the code:
+Open the terminal at the directory (folder) where you want to download the code:
 - <b> Cloning the repository: </b> Run `git clone https://github.com/acm-uic/SIG-Math-2025.git`
 - <b> Move into the cloned repo: `cd SIG-Math-2025` </b>
 - <b> Make your own branch: </b> `git checkout -b <your-branch-name>`
