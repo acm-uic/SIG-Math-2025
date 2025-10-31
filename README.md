@@ -13,7 +13,7 @@ Once you are a member, you can clone, work and make pull requests to the repo as
 
 Open the terminal at the directory (folder) where you want to download the code:
 - <b> Cloning the repository: </b> Run `git clone https://github.com/acm-uic/SIG-Math-2025.git`
-- <b> Move into the cloned repo: `cd SIG-Math-2025` </b>
+- <b> Move into the cloned repo:</b> `cd SIG-Math-2025` 
 - <b> Make your own branch: </b> `git checkout -b <your-branch-name>`
 
 From here, you should be able to make your local change as see fit and when you are ready to have your code be part of the repo. Do
