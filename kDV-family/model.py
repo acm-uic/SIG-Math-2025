@@ -59,14 +59,14 @@ class KdVPINN(nn.Module):
     
     def kdv_residual(self, x, t):
         """
-        kdv redisual: u_t + 6u u_x + u_xxx = 0 
+        kdv redisual: u_t - 6u u_x + u_xxx = 0 
         """
         # Create tensors that require gradients
         x = x.clone().detach().requires_grad_(True)
         t = t.clone().detach().requires_grad_(True)
 
         # Forward pass
-        u = self.forward(x, y)
+        u = self.forward(x, t)
 
         # First derivatives
         u_t = torch.autograd.grad(
@@ -97,5 +97,5 @@ class KdVPINN(nn.Module):
             retain_graph=True
         )[0]
 
-        return u_t + 6*u*u_x + u_xxx
+        return u_t - 6*u*u_x + u_xxx
     
