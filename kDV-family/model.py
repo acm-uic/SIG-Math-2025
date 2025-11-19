@@ -46,7 +46,7 @@ class KdVPINN(nn.Module):
     def __init__(self, hidden_layers=[40,40,40,40], activation="tanh"):
         super().__init__()
 
-        self.model = NN(hidden_layers=hidden_layers, activation="tanh")
+        self.model = NN(hidden_layers=hidden_layers, activation=activation)
     
     def forward(self, x, t):
         return self.model(x,t)
