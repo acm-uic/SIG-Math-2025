@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.optim as optim
 
 
 """
@@ -21,14 +20,15 @@ class GaborLayer(nn.Module):
 
 
 class MultiplicativeFilterNetwork(nn.Module):
-    def __init__(self, hidden_layers=[128, 128, 128, 128], alpha=6.0):
+    def __init__(self, hidden_layers=[128, 128, 128, 128], alpha=6.0, beta=0.1):
         super().__init__()
         
         # Input layer
-        self.input_layer = GaborLayer(2, hidden_layers[0], alpha=alpha)
+        self.input_layer = GaborLayer(2, hidden_layers[0], alpha=alpha, beta=beta)
         
         # Hidden layers
-        self.hidden = nn.ModuleList([GaborLayer(hidden_layers[i], hidden_layers[i+1], alpha=alpha) for i in range(len(hidden_layers) - 1)])
+        self.hidden = nn.ModuleList([GaborLayer(hidden_layers[i], hidden_layers[i+1], alpha=alpha, beta=beta) 
+                                        for i in range(len(hidden_layers) - 1)])
         
         # Output layer
         self.output = nn.Linear(hidden_layers[-1], 1)
@@ -44,8 +44,8 @@ class MultiplicativeFilterNetwork(nn.Module):
     
     
     def forward(self, x, y):
-        coords = torch.cat([x, y], dim=1)
-        out = self.input_layer(coords)
+        input = torch.cat([x, y], dim=1)
+        out = self.input_layer(input)
         for layer in self.hidden:
             out = layer(out)
         return self.output(out)
@@ -98,12 +98,12 @@ class NN(nn.Module):
     Helmholtz Equation PINN
 """
 class HelmholtzPINN(nn.Module):
-    def __init__(self, f, k=1, hidden_layers=[40,40,40,40], activation="tanh"):
+    def __init__(self, f, k=1, hidden_layers=[40,40,40,40], activation="tanh", alpha=6.0, beta=1.0):
         super().__init__()
 
         self.k = k
         self.f = f
-        self.model = MultiplicativeFilterNetwork(hidden_layers=hidden_layers)
+        self.model = MultiplicativeFilterNetwork(hidden_layers=hidden_layers, alpha=alpha, beta=beta)
     
     def forward(self, x, y):
         return self.model(x,y)
