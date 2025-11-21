@@ -15,6 +15,9 @@ This section will be holding the benchmarks of the trained models as we moving t
 ### [Helmholtz equation](helmholtz/helmholtz-mfn.ipynb)
 ![image info](./Gallery/helmholtz_pinn_benchmark.png)
 
+### [KdV equation (single-soliton)](kDV-family/KdV-single-soliton.ipynb)
+![image info](./Gallery/kdv_pinn_benchmark.png)
+
 ## Contributing guide 
 
 If you are interesting in contributing to this. There are 2 ways that you can contribute to this project:
