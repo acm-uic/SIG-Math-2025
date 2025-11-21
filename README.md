@@ -10,7 +10,7 @@ This section will be holding the benchmarks of the trained models as we moving t
 
 ### [Black-Scholes equation](black-scholes/black_scholes.ipynb)
 ![image info](./Gallery/black-scholes-pinn-vis.png)
-![image info](./Gallery/black-scholes-slice.png)
+![image info](./Gallery/black-scholes-pinn-vis-2.png)
 
 ### [Helmholtz equation](helmholtz/helmholtz-mfn.ipynb)
 ![image info](./Gallery/helmholtz_pinn_benchmark.png)
