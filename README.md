@@ -1,6 +1,6 @@
 # SIG Math Fall 2025
 
-This is the repository for ACM's SIG Math for Fall 2025 focusing on solving Partial Differential Equations with Physics Informed Neural Netowrks.
+This is the repository for ACM's SIG Math for Fall 2025 focusing on solving Partial Differential Equations with Physics Informed Neural Networks.
 
 ## Gallery
 This section will be holding the benchmarks of the trained models as we moving throughtout the semester
